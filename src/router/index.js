@@ -4,6 +4,8 @@ import Contacts from '../views/Contacts.vue'
 import ContactDetails from '../views/ContactDetails.vue'
 import ContactEdit from '../views/ContactEdit.vue'
 import Charts from '../views/Charts.vue'
+import Login from '../views/Login.vue'
+import Signup from '../views/Signup.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -11,6 +13,14 @@ const router = createRouter({
     {
       path: '/',
       component: HomeView
+    },
+    {
+      path: '/login',
+      component: Login
+    },
+    {
+      path: '/signup',
+      component: Signup
     },
     {
       path: '/contact',

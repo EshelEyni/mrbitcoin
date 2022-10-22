@@ -21,7 +21,7 @@ export default {
 
 <style>
 .main-container{
-    min-height: calc(90vh - 4em);
-    padding: 15px;
+    min-height: calc(90vh);
+    /* padding: 15px; */
 }
 </style>

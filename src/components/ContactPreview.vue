@@ -21,6 +21,6 @@ export default {
 <style lang="scss">
 .contact-name{
     text-decoration: none;
-    color:var(--color-text);
+    color:#13161F;
 }
 </style>

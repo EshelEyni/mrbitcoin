@@ -1,12 +1,9 @@
 <template>
-    <h1>Contacts</h1>
+    <h1 class="contact-app-header">Contacts</h1>
     <ContactList @contact-removed="onRemoveContact" :contacts="contacts" />
-
 </template>
 
 <script>
-
-import { contactService } from '@/services/contact.service.js';
 import ContactList from "@/components/ContactList.vue";
 
 export default {
@@ -19,7 +16,7 @@ export default {
             this.$store.dispatch({ type: 'removeContact', contactId })
         }
     },
-    async created() {
+    created() {
         this.$store.dispatch({ type: 'loadContacts' })
     },
     computed: {
@@ -28,9 +25,11 @@ export default {
     components: {
         ContactList
     }
-};
+}
 </script>
 
 <style lang="scss">
-
+.contact-app-header {
+    text-align: center;
+}
 </style>

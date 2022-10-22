@@ -1,6 +1,5 @@
 import { contactService } from "../../services/contact.service"
 
-// import { carService } from '@/services/car.service.js'
 export default {
     state: {
         contacts: [],
@@ -22,7 +21,6 @@ export default {
         async loadContacts(context) {
             try {
                 const contacts = await contactService.getContacts()
-                console.log(contacts);
                 context.commit({ type: 'setContacts', contacts })
             }
             catch (err) {

@@ -1,17 +1,17 @@
 <template>
     <section class="contact-list">
-        <h1>Contact List</h1>
-        <button class="add-btn">
-            <RouterLink :to="`/contact/edit/`"> Add Contact </RouterLink>
-        </button>
+        <h1 class="cl-header">Contact List</h1>
+        <RouterLink class="add-btn" :to="`/contact/edit/`"> Add Contact </RouterLink>
         <ul>
             <TransitionGroup name="list">
                 <li v-for="contact in contacts" :key="contact?._id">
-                    <section class="btns">
-                        <RouterLink class="edit-btn" :to="`/contact/edit/${contact._id}`">📝</RouterLink>
-                        <button class="delete-btn" @click="onRemoveContact(contact._id)">❌</button>
-                    </section>
                     <ContactPreview :contact="contact" />
+                    <section class="btns">
+                        <RouterLink class="edit-btn" :to="`/contact/edit/${contact._id}`">
+                            <button>Edit</button>
+                        </RouterLink>
+                        <button class="delete-btn" @click="onRemoveContact(contact._id)">Delete</button>
+                    </section>
                 </li>
             </TransitionGroup>
         </ul>
@@ -19,9 +19,7 @@
 </template>
 
 <script>
-
 import ContactPreview from '@/components/ContactPreview.vue'
-
 
 export default {
     props: {
@@ -43,43 +41,56 @@ export default {
 </script>
 
 <style lang="scss">
+.cl-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
 .add-btn {
     padding: 15px;
     margin: 25px;
     border-radius: 25px;
+    background-color: #FF9500;
     border: 1px solid #000;
-
-    &>* {
-        text-decoration: none;
-        color: #000;
-    }
+    text-decoration: none;
+    color: #000;
 }
 
 .contact-list ul {
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    margin-top: 50px;
     gap: 10px;
-    background-color: darkcyan;
+    // background-color: rgb(139, 107, 0);
     padding: 10px;
     list-style-type: none;
     border-radius: 5px;
 
 
     li {
-        background-color: darkseagreen;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: #FF9500;
+        color: #13161F;
         padding: 10px;
         border-radius: 15px;
         list-style: none;
-        height: 150px;
+        height: 175px;
 
         .btns {
             display: flex;
             justify-content: end;
+            gap: 10px;
 
-            &>* {
-                background-color: rgba(0, 0, 0, 0);
-                border: none;
-                font-size: 20px;
+            button {
+                color: #FF9500;
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 5px;
+                border: 1px solid #FF9500;
+                font-size: 0.80rem;
                 cursor: pointer;
                 text-decoration: none;
             }

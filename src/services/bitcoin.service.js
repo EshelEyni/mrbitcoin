@@ -7,18 +7,20 @@ export const bitcoinService = {
     getAvgBlockSize,
 }
 
-async function getRate() {
-    const rateFromStorage = storageService.loadFromStorage('rate')
-    if (rateFromStorage) {
+async function getRate(currency) {
+    console.log('currency', currency)
+    const rateMap = storageService.loadFromStorage('rate') || {}
+    if (rateMap[currency]) {
         console.log('From Cache');
-        return rateFromStorage
+        return rateMap[currency]
     }
 
     console.log('From Network');
-    const str = `https://blockchain.info/tobtc?currency=USD&value=1`
-    const rate = await axios.get(str)
-
-    storageService.saveToStorage('rate', rate)
+    const apiStr = `https://blockchain.info/tobtc?currency=${currency}&value=1`
+    const res = await axios.get(apiStr)
+    const rate = (1 / res.data).toFixed(2)
+    rateMap[currency] = rate
+    storageService.saveToStorage('rate', rateMap)
     return rate
 }
 

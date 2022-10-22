@@ -1,5 +1,5 @@
 <template>
-
+    <h1 class="chart-header">Bitcoin rate last year</h1>
     <Bar :chart-options="chartOptions" :chart-data="chartData" :chart-id="chartId" :dataset-id-key="datasetIdKey"
         :plugins="plugins" :css-classes="cssClasses" :styles="styles" :width="width" :height="height" />
 </template>
@@ -55,7 +55,7 @@ export default {
                 labels: this.labels,
                 datasets: [{
                     data: this.data, backgroundColor: [
-                        'rgba(0 ,0 ,0, 0.6)'
+                        '#FF9500'
                     ], label: '1 Bit coin in USD',
                 }]
             },
@@ -66,3 +66,9 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.chart-header {
+    text-align: center;
+}
+</style>

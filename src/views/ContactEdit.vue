@@ -1,15 +1,15 @@
 <template>
-    <div v-if="contact" class="contact-edit">
-        <h1>Contact Edit</h1>
+    <section v-if="contact" class="contact-edit">
+        <h1 class="edit-header">Contact Edit</h1>
         <form class="edit-form" @submit.prevent="onSave">
             <input v-model="contact.name" type="text" placeholder="Name*">
             <input v-model="contact.email" type="text" placeholder="Email*">
             <input v-model="contact.phone" type="text" placeholder="Phone*">
             <button>Save</button>
         </form>
-        <button @click="onGoBack()">Back</button>
-    </div>
-    <div v-else>Loding contact details...</div>
+        <button class="btn-go-back" @click="onGoBack()">Back</button>
+    </section>
+    <section v-else>Loding contact details...</section>
 </template>
 
 <script>
@@ -40,7 +40,7 @@ export default {
             }
         },
         async onSave() {
-            this.$store.dispatch({ type: 'saveContact', contact: this.contact})
+            this.$store.dispatch({ type: 'saveContact', contact: this.contact })
             this.$router.back()
         },
         onGoBack() {
@@ -51,6 +51,14 @@ export default {
 </script>
 
 <style lang="scss">
+.contact-edit {
+    height: 90vh;
+}
+
+.edit-header {
+    text-align: center;
+}
+
 .edit-form {
     display: flex;
     flex-direction: column;
@@ -58,17 +66,34 @@ export default {
     margin-top: 75px;
     gap: 10px;
 
-    &>*:not(:nth-child(4)) {
+    &>*:not(button) {
         width: 30vw;
         height: 45px;
         padding-inline-start: 15px;
         border-radius: 15px;
     }
 
-    &>*:nth-child(4) {
-        height: 45px;
-        width: 75px;
+    button {
+        height: 55px;
+        width: 85px;
+        font-size: 1.25rem;
         border-radius: 15px;
+        border: none;
+        color: #fff;
+        background-color: #FF9500;
     }
+}
+
+.btn-go-back {
+    position: absolute;
+    bottom: 10px;
+    margin-top: 50px;
+    height: 55px;
+    width: 85px;
+    font-size: 1.25rem;
+    border-radius: 15px;
+    border: none;
+    color: #fff;
+    background-color: #FF9500;
 }
 </style>

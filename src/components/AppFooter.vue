@@ -15,7 +15,8 @@ export default {
     display: flex;
     align-items: center;
 
-    background-color: rgb(230, 215, 173);
+    background-color: #13161F;
+    color: #fff;
     height: 5vh;
     padding-inline: 10px;
 }
