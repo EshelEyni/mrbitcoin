@@ -4,14 +4,14 @@
             <section class="contact-details-main-container">
                 <h1>Contact Details</h1>
                 <img :src="setImgUrl(contact)" alt="">
-                <h2>{{contact.name}}</h2>
-                <h3>{{contact.email}}</h3>
-                <h3>{{contact.phone}}</h3>
+                <h2>{{ contact.name }}</h2>
+                <h3>{{ contact.email }}</h3>
+                <h3>{{ contact.phone }}</h3>
             </section>
             <TransactionList v-if="contact.transactions.length" :transactions="contact.transactions"
                 :isDetails="true" />
             <div>
-                <TransferFunds v-if="contact&&user" :contact="contact" @transfer="onTransfer" />
+                <TransferFunds v-if="contact && user" :contact="contact" @transfer="onTransfer" />
             </div>
             <button class="btn-go-back" @click="onGoBack()">Back</button>
         </div>
@@ -43,7 +43,7 @@ export default {
             }
         },
         setImgUrl(contact) {
-            const imgUrl = `https://joeschmoe.io/api/v1/${contact._id}@ashallendesign.co.uk`;
+            const imgUrl = `https://xsgames.co/randomusers/assets/avatars/${contact.gender}/${contact.imgIdx}.jpg`;
             return imgUrl;
         },
         onTransfer(transfer) {
