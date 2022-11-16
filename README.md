@@ -1,6 +1,6 @@
 # mrbitcoin
 
-This template should help get you started developing with Vue 3 in Vite.
+<p> A bitcoin wallet made with vue. </p>
 
 ## Recommended IDE Setup
 
