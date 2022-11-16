@@ -3,7 +3,7 @@
 
 You can check it out [here](https://esheleyni.github.io/mrbitcoin/#/).
 
-![Homepage image](src/assets/imgs/home-img.JPG)
+![Homepage image](src/assets/img/screenshots/homepage.png)
 ___
 
 ### Table of Contents
